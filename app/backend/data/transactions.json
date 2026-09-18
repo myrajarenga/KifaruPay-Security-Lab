@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1001,
+    "userId": 1,
+    "type": "payment",
+    "amount": 5000,
+    "description": "Electricity Bill",
+    "status": "completed"
+  },
+  {
+    "id": 1002,
+    "userId": 2,
+    "type": "payment",
+    "amount": 12000,
+    "description": "School Fees",
+    "status": "completed"
+  },
+  {
+    "id": 1003,
+    "userId": 1,
+    "type": "transfer",
+    "amount": 15000,
+    "description": "Transfer to Savings",
+    "status": "completed"
+  }
+]

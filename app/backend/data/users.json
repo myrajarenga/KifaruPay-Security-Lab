@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Amina Otieno",
+    "email": "amina@kifaru.test",
+    "password": "Amina123!",
+    "role": "user",
+    "balance": 125000
+  },
+  {
+    "id": 2,
+    "name": "Brian Kamau",
+    "email": "brian@kifaru.test",
+    "password": "Brian123!",
+    "role": "user",
+    "balance": 85000
+  },
+  {
+    "id": 3,
+    "name": "Kifaru Admin",
+    "email": "admin@kifaru.test",
+    "password": "Admin123!",
+    "role": "admin",
+    "balance": 500000
+  }
+]
