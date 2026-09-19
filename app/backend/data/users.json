@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Amina Otieno",
     "email": "amina@kifaru.test",
-    "password": "Amina123!",
+    "passwordHash": "$2b$12$7D77RGqKmw5B8R6JzA9U9OBjnyZRlOmDscV/jkVNF81yYipQHkv4e",
     "role": "user",
     "balance": 125000
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "name": "Brian Kamau",
     "email": "brian@kifaru.test",
-    "password": "Brian123!",
+    "passwordHash": "$2b$12$iN.RgKNaxl8Iz1mh2g3zLeN9tO7In3tsmPC1gY/Y7ucdi2TOnO4R6",
     "role": "user",
     "balance": 85000
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "name": "Kifaru Admin",
     "email": "admin@kifaru.test",
-    "password": "Admin123!",
+    "passwordHash": "$2b$12$h75KLrJxYc59L5bKiE.aeOJWMe2R6nt60iWLU./TYnrcQodAhxXra",
     "role": "admin",
     "balance": 500000
   }

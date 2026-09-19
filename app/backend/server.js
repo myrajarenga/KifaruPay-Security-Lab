@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 const app = express();
 const PORT = 5000;
@@ -48,14 +49,25 @@ app.get("/api/health", (req, res) => {
 });
 
 // Login
-app.post("/api/login", (req, res) => {
+app.post("/api/login", async (req, res) => {
   const { email, password } = req.body;
 
   const user = users.find(
-    (item) => item.email === email && item.password === password
+    (item) => item.email === email
   );
 
   if (!user) {
+    return res.status(401).json({
+      error: "Invalid email or password"
+    });
+  }
+
+  const passwordMatches = await bcrypt.compare(
+    password,
+    user.passwordHash
+  );
+
+  if (!passwordMatches) {
     return res.status(401).json({
       error: "Invalid email or password"
     });
@@ -77,8 +89,6 @@ app.post("/api/login", (req, res) => {
     token
   });
 });
-
-
 // Get one transaction
 app.get("/api/transactions", authenticateToken, (req, res) => {
   res.json(transactions);
@@ -95,6 +105,16 @@ app.get("/api/transactions/:id", authenticateToken, (req, res) => {
   if (!transaction) {
     return res.status(404).json({
       error: "Transaction not found"
+    });
+  }
+
+  // Authorization check
+  if (
+    req.user.role !== "admin" &&
+    transaction.userId !== req.user.userId
+  ) {
+    return res.status(403).json({
+      error: "Access denied"
     });
   }
 
